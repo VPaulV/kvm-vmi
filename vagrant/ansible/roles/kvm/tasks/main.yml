@@ -27,7 +27,7 @@
   args:
     chdir: "{{ root_dir }}"
   become: false
-  when: is_windows
+#  when: is_windows
 
 - name: configure kernel using distro's config
   command: make olddefconfig
