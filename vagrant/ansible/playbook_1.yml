@@ -7,6 +7,10 @@
   pre_tasks:
     - name: check for virtualization extensions in cpuinfo
       shell: egrep '(vmx|svm)' /proc/cpuinfo
+      
+    - name: fix grub
+      shell: echo "set grub-pc/install_devices /dev/vda" | debconf-communicate
+      become: true
 
     - name: system upgrade
       apt:
